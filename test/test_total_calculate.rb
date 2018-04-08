@@ -26,7 +26,7 @@ class TestTotalCalculate < Test::Unit::TestCase
       log_lines_array << line
     end
     web_camera_hash = total_calculate.get_web_camera_hash(log_lines_array)
-    assert_equal(4, web_camera_hash["web.12"].count)
+    assert_equal(4, web_camera_hash["web.12"].length)
     web_camera_hash_empty = total_calculate.get_web_camera_hash() #for no arguements provided
     assert_equal({}, web_camera_hash_empty)
   end

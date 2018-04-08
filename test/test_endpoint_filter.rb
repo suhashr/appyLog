@@ -7,13 +7,13 @@ class TestEndPointFilter < Test::Unit::TestCase
     endpoint_filter = EndpointFilter.new
     assert_equal("File not found or corrupted", endpoint_filter.get_endpoint_hash('./nofile.log')) #check for no file give response of error
     endpoint_hash = endpoint_filter.get_endpoint_hash('./test/test_sample.log') #correct file_path
-    assert_equal(1, endpoint_hash['get_camera'].count)
-    assert_equal(4, endpoint_hash['get_all_cameras'].count)
-    assert_equal(1, endpoint_hash['get_home'].count)
-    assert_equal(3, endpoint_hash['post_user'].count)
-    assert_equal(1, endpoint_hash['get_user'].count)
+    assert_equal(1, endpoint_hash['get_camera'].length)
+    assert_equal(4, endpoint_hash['get_all_cameras'].length)
+    assert_equal(1, endpoint_hash['get_home'].length)
+    assert_equal(3, endpoint_hash['post_user'].length)
+    assert_equal(1, endpoint_hash['get_user'].length)
     default_file_hash = endpoint_filter.get_endpoint_hash() #if not filepath given, it will use default log File
-    assert_equal(1533, default_file_hash['get_camera'].count)
+    assert_equal(1533, default_file_hash['get_camera'].length)
   end
 
 end
